@@ -1,5 +1,9 @@
 <template>
     <div>
+        <div>
+            <label for="upNext">Enable Up Next</label>
+            <input type="checkbox" id="upNext" v-model="upNext">
+        </div>
         <!-- Search modal -->
         <div id="searchModal" ref="searchModal" tabindex="-1" aria-hidden="true"
             class="hidden overflow-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
@@ -717,7 +721,7 @@ useHead({
             href: manifest.logo,
         }
     ],
-})
+});
 
 const state = reactive({
     url: '',
@@ -744,6 +748,18 @@ const state = reactive({
     user: {},
     RPDBkey: { key: null, valid: null, poster: 'poster-default', posters: null, tier: null },
 });
+
+const upNext = ref(false);
+
+function saveConfig() {
+    // existing code to save config
+    config.up_next = upNext.value;
+}
+
+function loadConfig() {
+    // existing code to load config
+    upNext.value = config.up_next;
+}
 
 const searchModal = ref();
 const installModal = ref();
