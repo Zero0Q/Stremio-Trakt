@@ -635,5 +635,21 @@ async function getMeta(type = String, id = String) {
 	}
 }
 
+async function upNext(access_token) {
+    try {
+        const header = {
+            headers: {
+                'Authorization': `Bearer ${access_token}`
+            }
+        };
+        const url = '/sync/playback/episodes';
+        const data = await request(url, header);
+        if (!data || !data.data) throw 'error getting data (up next)';
+        return data.data;
+    } catch (e) {
+        console.error(e);
+    }
+}
+
 
 module.exports = { getToken, generic_lists: { watchlist, rec: recomendations, popular, trending }, list_catalog, list_cat, listOfLists, getMeta, search, getUserProfile };
