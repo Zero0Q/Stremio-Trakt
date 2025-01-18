@@ -32,7 +32,7 @@ function getConfig(env = ENV){
   switch (env) {
     case 'beamup':
       config.port = process.env.PORT;
-      config.local = "https://2ecbbd610840-trakt.baby-beamup.club"
+      config.local = "https://stremio-trakt-2e39d7982687.herokuapp.com"
       break;
 
     case 'local':
