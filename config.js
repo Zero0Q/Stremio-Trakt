@@ -19,7 +19,8 @@ function getConfig(env = ENV){
     'API_KEY': process.env.API_KEY,
     'client_secret': process.env.client_secret,
     'client_id': process.env.client_id,
-    'tmdb': process.env.tmdb
+    'tmdb': process.env.tmdb,
+    up_next: false // Add this line
   }
 
   //config.CacheControl = 'max-age=86400, stale-while-revalidate=43200, stale-if-error=86400, public';
